@@ -263,7 +263,7 @@ def gen_capture_frames(employee_id):
 @login_required
 def capture_feed(employee_id):
     return Response(gen_capture_frames(employee_id),
-                     mimetype="multipart/x-mixed-replace; boundary=frame")
+                    mimetype="multipart/x-mixed-replace; boundary=frame")
 
 
 @app.route("/capture_status/<int:employee_id>")
@@ -366,7 +366,7 @@ def gen_attendance_frames():
 @login_required
 def video_feed():
     return Response(gen_attendance_frames(),
-                     mimetype="multipart/x-mixed-replace; boundary=frame")
+                    mimetype="multipart/x-mixed-replace; boundary=frame")
 
 
 @app.route("/camera_check")
@@ -408,7 +408,7 @@ def reports():
     logs = db.get_attendance_filtered(date=date_filter, department_id=dept_filter)
     departments = db.get_all_departments()
     return render_template("reports.html", logs=logs, departments=departments,
-                            selected_date=date_filter, selected_dept=dept_filter)
+                           selected_date=date_filter, selected_dept=dept_filter)
 
 
 if __name__ == "__main__":
